@@ -19,6 +19,7 @@ class HijoFactory extends Factory
         $grados = ['1°', '2°', '3°', '4°', '5°', '6°'];
         $grupos = ['A', 'B', 'C'];
         return [
+            'tutor_id' => 1,
             'foto' => 'avatars/placeholder.png',
             'nombre' => fake()->firstName(),
             'apellido' => fake()->lastName(),

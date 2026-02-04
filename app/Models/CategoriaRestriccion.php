@@ -11,4 +11,9 @@ class CategoriaRestriccion extends Model
     use HasFactory;
 
     protected $fillable = ['nombre'];
+
+    public function restricciones()
+    {
+        return $this->hasMany(Restriccion::class);
+    }
 }

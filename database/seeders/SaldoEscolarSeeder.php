@@ -28,7 +28,7 @@ class SaldoEscolarSeeder extends Seeder
         foreach ($tutors as $tutor) {
             $numHijos = random_int(0, 3);
             for ($i = 0; $i < $numHijos; $i++) {
-                $hijo = Hijo::factory()->create();
+                $hijo = Hijo::factory()->create(['tutor_id' => $tutor->id]);
 
                 $numDepositos = random_int(5, 10);
                 Deposito::factory($numDepositos)->create([

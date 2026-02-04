@@ -11,4 +11,14 @@ class Restriccion extends Model
     use HasFactory;
 
     protected $fillable = ['hijo_id', 'categoria_restriccion_id', 'restringido'];
+
+    public function hijo()
+    {
+        return $this->belongsTo(Hijo::class);
+    }
+
+    public function categoriaRestriccion()
+    {
+        return $this->belongsTo(CategoriaRestriccion::class);
+    }
 }

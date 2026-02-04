@@ -11,4 +11,14 @@ class Movimiento extends Model
     use HasFactory;
 
     protected $fillable = ['hijo_id', 'producto_id', 'costo'];
+
+    public function hijo()
+    {
+        return $this->belongsTo(Hijo::class);
+    }
+
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class);
+    }
 }

@@ -11,4 +11,14 @@ class Deposito extends Model
     use HasFactory;
 
     protected $fillable = ['tutor_id', 'hijo_id', 'cantidad'];
+
+    public function tutor()
+    {
+        return $this->belongsTo(Tutor::class);
+    }
+
+    public function hijo()
+    {
+        return $this->belongsTo(Hijo::class);
+    }
 }
