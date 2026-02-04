@@ -9,4 +9,6 @@ class CategoriaRestriccion extends Model
 {
     /** @use HasFactory<\Database\Factories\CategoriaRestriccionFactory> */
     use HasFactory;
+
+    protected $fillable = ['nombre'];
 }

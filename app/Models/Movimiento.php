@@ -9,4 +9,6 @@ class Movimiento extends Model
 {
     /** @use HasFactory<\Database\Factories\MovimientoFactory> */
     use HasFactory;
+
+    protected $fillable = ['hijo_id', 'producto_id', 'costo'];
 }

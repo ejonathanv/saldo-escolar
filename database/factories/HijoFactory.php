@@ -16,8 +16,14 @@ class HijoFactory extends Factory
      */
     public function definition(): array
     {
+        $grados = ['1°', '2°', '3°', '4°', '5°', '6°'];
+        $grupos = ['A', 'B', 'C'];
         return [
-            //
+            'foto' => 'avatars/placeholder.png',
+            'nombre' => fake()->firstName(),
+            'apellido' => fake()->lastName(),
+            'grado' => fake()->randomElement($grados),
+            'grupo' => fake()->randomElement($grupos),
         ];
     }
 }

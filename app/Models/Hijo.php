@@ -9,4 +9,6 @@ class Hijo extends Model
 {
     /** @use HasFactory<\Database\Factories\HijoFactory> */
     use HasFactory;
+
+    protected $fillable = ['foto', 'nombre', 'apellido', 'grado', 'grupo'];
 }

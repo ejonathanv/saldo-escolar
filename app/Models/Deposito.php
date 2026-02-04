@@ -9,4 +9,6 @@ class Deposito extends Model
 {
     /** @use HasFactory<\Database\Factories\DepositoFactory> */
     use HasFactory;
+
+    protected $fillable = ['tutor_id', 'hijo_id', 'cantidad'];
 }

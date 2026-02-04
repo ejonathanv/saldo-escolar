@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\CategoriaRestriccion;
 use Illuminate\Database\Seeder;
 
 class CategoriaRestriccionSeeder extends Seeder
@@ -12,6 +12,9 @@ class CategoriaRestriccionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $categorias = ['Refrescos', 'Frituras', 'Dulces', 'Alimentos Saludables'];
+        foreach ($categorias as $nombre) {
+            CategoriaRestriccion::firstOrCreate(['nombre' => $nombre]);
+        }
     }
 }

@@ -17,7 +17,9 @@ class RestriccionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'hijo_id' => 1,
+            'categoria_restriccion_id' => 1,
+            'restringido' => fake()->boolean(),
         ];
     }
 }

@@ -16,8 +16,9 @@ class CategoriaRestriccionFactory extends Factory
      */
     public function definition(): array
     {
+        $nombres = ['Refrescos', 'Frituras', 'Dulces', 'Alimentos Saludables', 'Bebidas energéticas', 'Postres'];
         return [
-            //
+            'nombre' => fake()->unique()->randomElement($nombres),
         ];
     }
 }

@@ -17,7 +17,9 @@ class MovimientoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'hijo_id' => 1,
+            'producto_id' => 1,
+            'costo' => fake()->randomFloat(2, 5, 50),
         ];
     }
 }

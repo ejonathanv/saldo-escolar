@@ -17,7 +17,9 @@ class DepositoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'tutor_id' => 1,
+            'hijo_id' => 1,
+            'cantidad' => fake()->randomFloat(2, 50, 500),
         ];
     }
 }
