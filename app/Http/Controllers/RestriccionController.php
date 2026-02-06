@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hijo;
+use App\Models\Restriccion;
 use App\Http\Requests\StoreRestriccionRequest;
 use App\Http\Requests\UpdateRestriccionRequest;
-use App\Models\Restriccion;
+use App\Models\CategoriaRestriccion;
 
 class RestriccionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Hijo $hijo)
     {
-        //
+        $categorias = CategoriaRestriccion::orderBy('nombre')->get();
+        
+        return view('hijos.restricciones', compact('hijo', 'categorias'));
     }
 
     /**

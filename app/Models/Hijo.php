@@ -31,4 +31,12 @@ class Hijo extends Model
     {
         return $this->hasMany(Restriccion::class);
     }
+
+    public function getNombreCompletoAttribute(){
+        return $this->nombre . ' ' . $this->apellido;
+    }
+
+    public function getSaldoActualAttribute(){
+        return '$' . number_format($this->saldo, 2);
+    }
 }

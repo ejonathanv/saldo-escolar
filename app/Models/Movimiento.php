@@ -21,4 +21,8 @@ class Movimiento extends Model
     {
         return $this->belongsTo(Producto::class);
     }
+
+    public function getCostoTotalAttribute(){
+        return '$' . number_format($this->costo, 2);
+    }
 }

@@ -18,6 +18,7 @@ class HijoFactory extends Factory
     {
         $grados = ['1°', '2°', '3°', '4°', '5°', '6°'];
         $grupos = ['A', 'B', 'C'];
+        $saldo = rand(100, 500);
         return [
             'tutor_id' => 1,
             'foto' => 'avatars/placeholder.png',
@@ -25,6 +26,7 @@ class HijoFactory extends Factory
             'apellido' => fake()->lastName(),
             'grado' => fake()->randomElement($grados),
             'grupo' => fake()->randomElement($grupos),
+            'saldo' => $saldo
         ];
     }
 }

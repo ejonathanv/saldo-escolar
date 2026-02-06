@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hijo;
+use App\Models\Deposito;
 use App\Http\Requests\StoreDepositoRequest;
 use App\Http\Requests\UpdateDepositoRequest;
-use App\Models\Deposito;
 
 class DepositoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Hijo $hijo)
     {
-        //
+        return view('hijos.agregar-saldo', compact('hijo'));
     }
 
     /**
@@ -27,9 +28,30 @@ class DepositoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDepositoRequest $request)
+    public function store(StoreDepositoRequest $request, Hijo $hijo)
     {
-        //
+        $cantidad = $request->monto;
+
+        $deposito = new Deposito();
+        $deposito->tutor_id = $hijo->tutor_id;
+        $deposito->hijo_id = $hijo->id;
+        $deposito->cantidad = $cantidad;
+
+        $deposito->save();
+
+        // Sumamos la cantidad al saldo actual del hijo
+        $saldoActual = $hijo->saldo;
+        $saldoActualizado = $saldoActual + $cantidad;
+        $hijo->saldo = $saldoActualizado;
+        $hijo->save();
+
+        // Retornamos una respuesta
+        $response = 'Se ha registrado la recarga en el saldo de ' . $hijo->nombre;
+
+        return response()->json([
+            'message' => $response,
+            'status' => 200
+        ]);
     }
 
     /**

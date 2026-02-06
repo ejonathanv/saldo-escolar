@@ -37,7 +37,7 @@ class HijoController extends Controller
      */
     public function show(Hijo $hijo)
     {
-        //
+        return view('hijos.show', compact('hijo'));
     }
 
     /**

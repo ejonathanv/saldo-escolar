@@ -11,7 +11,7 @@ class StoreDepositoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreDepositoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'monto' => 'required|numeric'
+        ];
+    }
+
+    public function messages(){
+        return [
+            'monto.required' => 'El monto es requerido',
+            'monto.numeric' => 'El monto debe ser númerico'
         ];
     }
 }
