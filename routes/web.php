@@ -7,9 +7,7 @@ use App\Http\Controllers\DepositoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RestriccionController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'login');
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
