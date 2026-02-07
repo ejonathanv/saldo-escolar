@@ -22,6 +22,18 @@ class SaldoEscolarSeeder extends Seeder
         $productoIds = Producto::pluck('id')->toArray();
         $categoriaIds = CategoriaRestriccion::pluck('id')->toArray();
 
+        // Administradores
+        User::factory(1)->create([
+            'email' => 'admin@test.com',
+            'role' => 'admin'
+        ]);
+        // Tienda
+        User::factory(1)->create([
+            'email' => 'store@test.com',
+            'role' => 'store'
+        ]);
+
+        // Tutores
         $users = User::factory(10)->create();
         $tutors = $users->map(fn (User $user) => Tutor::create(['user_id' => $user->id]));
 

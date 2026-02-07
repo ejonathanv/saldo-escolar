@@ -27,6 +27,8 @@ class ProductoFactory extends Factory
     {
         return [
             'nombre' => fake()->randomElement(self::$nombres),
+            'costo' => rand(20, 100),
+            'stock' => rand(10, 100)
         ];
     }
 }

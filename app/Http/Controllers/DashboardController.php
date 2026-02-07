@@ -9,7 +9,15 @@ class DashboardController extends Controller
 {
     public function index(){
         $usuario = Auth::user();
-        $tutor = $usuario->tutor;
-        return view('dashboard', compact('tutor'));
+        $role = $usuario->role;
+
+        if($role == 'tutor'){
+            $tutor = $usuario->tutor;
+            return view('dashboard.tutor', compact('usuario', 'tutor'));
+        }
+
+        if($role == 'admin'){
+            return view('dashboard.admin', compact('usuario'));
+        }
     }
 }

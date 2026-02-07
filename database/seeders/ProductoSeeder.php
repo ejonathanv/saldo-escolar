@@ -18,7 +18,11 @@ class ProductoSeeder extends Seeder
             'Chocolate', 'Barra de granola', 'Naranja', 'Plátano', 'Uvas', 'Zanahoria',
         ];
         foreach ($nombres as $nombre) {
-            Producto::firstOrCreate(['nombre' => $nombre]);
+            Producto::firstOrCreate([
+                'nombre' => $nombre,
+                'costo' => rand(20, 100),
+                'stock' => rand(10, 100)
+            ]);
         }
     }
 }

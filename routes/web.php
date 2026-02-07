@@ -5,6 +5,7 @@ use App\Http\Controllers\HijoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DepositoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\RestriccionController;
 
 Route::redirect('/', 'login');
@@ -23,6 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::post('hijos/{hijo}/realizar-recarga', [DepositoController::class, 'store'])->name('realizar-recarga');
     // Restricciones para hijo
     Route::get('hijos/{hijo}/restricciones', [RestriccionController::class, 'index'])->name('restricciones');
+
+    // Inventario
+    Route::get('inventario', [InventarioController::class, 'index'])->name('inventario');
 
 });
 
